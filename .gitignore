@@ -1,6 +1,7 @@
 .idea
 .terraform
 .DS_Store
+.history
 terraform.tfstate
 terraform.tfstate.*
 lambda-code/*.zip
