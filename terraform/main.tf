@@ -3,5 +3,5 @@ provider "aws" {
 }
 locals {
   serviceName = "ServerlessRestAPI"
-  DefaultDesc = "Managed by Terraform"
+  DefaultDesc = "Managed by Terraform, Powered by https://github.com/code-templates/terraform-APIGateway-lambda"
 }

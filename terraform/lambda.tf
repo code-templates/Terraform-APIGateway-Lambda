@@ -12,7 +12,7 @@ resource "aws_lambda_function" "lambdaFunction" {
 # IAM role which dictates what other AWS services the Lambda function
 # may access.
 resource "aws_iam_role" "lambda_exec" {
-  name = "${local.serviceName}"
+  name = "${local.serviceName}-LambdaExecRole"
 
   assume_role_policy = <<EOF
 {

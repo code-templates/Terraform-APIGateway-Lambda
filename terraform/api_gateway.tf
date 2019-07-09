@@ -53,7 +53,7 @@ resource "aws_api_gateway_deployment" "test" {
   stage_name  = "test"
 }
 resource "aws_api_gateway_usage_plan" "apiGatewayUsagePlan" {
-  name         = "${local.serviceName}UsagePlan"
+  name         = "${local.serviceName}-UsagePlan"
   description  = "${local.DefaultDesc}"
   product_code = "MYCODE"
 
