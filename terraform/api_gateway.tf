@@ -43,7 +43,7 @@ resource "aws_api_gateway_integration" "lambda_root" {
   uri                     = "${aws_lambda_function.example.invoke_arn}"
 }
 
-resource "aws_api_gateway_deployment" "example" {
+resource "aws_api_gateway_deployment" "test" {
   depends_on = [
     "aws_api_gateway_integration.lambda",
     "aws_api_gateway_integration.lambda_root",
@@ -52,7 +52,21 @@ resource "aws_api_gateway_deployment" "example" {
   rest_api_id = "${aws_api_gateway_rest_api.example.id}"
   stage_name  = "test"
 }
+resource "aws_api_gateway_usage_plan" "MyUsagePlan" {
+  name         = "my-usage-plan"
+  description  = "my description"
+  product_code = "MYCODE"
+
+  api_stages {
+    api_id = "${aws_api_gateway_rest_api.example.id}"
+    stage  = "${aws_api_gateway_deployment.test.stage_name}"
+  }
+  throttle_settings {
+    burst_limit = 5
+    rate_limit  = 5
+  }
+}
 
 output "base_url" {
-  value = "${aws_api_gateway_deployment.example.invoke_url}"
+  value = "${aws_api_gateway_deployment.test.invoke_url}"
 }
