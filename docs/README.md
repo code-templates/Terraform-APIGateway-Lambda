@@ -3,7 +3,9 @@ A demo to set up APIGateway &amp; Lambda by Terraform
 
 ## Usage
 
-- Clone Code:
+### Use this repo as template codebase
+
+- Fork this repo as a template or Clone Code:
 
 ```
 git clone git@github.com:code-templates/terraform-APIGateway-lambda.git
@@ -27,3 +29,4 @@ terraform apply
 ```
 
 ![Output](./images/output.png)
+
